@@ -25,6 +25,7 @@
         private void InitializeComponent() {
             this.MenuMain = new System.Windows.Forms.MenuStrip();
             this.gfdfgfgToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu_novo = new System.Windows.Forms.ToolStripMenuItem();
             this.Manu_abrir = new System.Windows.Forms.ToolStripMenuItem();
             this.Manu_salvar = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_salvarComo = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,6 +43,8 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.Menu_sobre = new System.Windows.Forms.ToolStripMenuItem();
             this.Content = new System.Windows.Forms.RichTextBox();
+            this.OpenFileDialogMain = new System.Windows.Forms.OpenFileDialog();
+            this.SaveFileDialogMain = new System.Windows.Forms.SaveFileDialog();
             this.MenuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +63,7 @@
             // gfdfgfgToolStripMenuItem
             // 
             this.gfdfgfgToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Menu_novo,
             this.Manu_abrir,
             this.Manu_salvar,
             this.Menu_salvarComo,
@@ -72,6 +76,13 @@
             this.gfdfgfgToolStripMenuItem.Name = "gfdfgfgToolStripMenuItem";
             this.gfdfgfgToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.gfdfgfgToolStripMenuItem.Text = "Arquivo";
+            // 
+            // Menu_novo
+            // 
+            this.Menu_novo.Name = "Menu_novo";
+            this.Menu_novo.Size = new System.Drawing.Size(151, 22);
+            this.Menu_novo.Text = "Novo";
+            this.Menu_novo.Click += new System.EventHandler(this.Menu_novo_Click);
             // 
             // Manu_abrir
             // 
@@ -194,6 +205,8 @@
             this.Content.Text = "";
             this.Content.WordWrap = false;
             this.Content.TextChanged += new System.EventHandler(this.Content_TextChanged);
+            this.Content.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Content_KeyDown);
+            this.Content.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Content_KeyUp);
             // 
             // MainForm
             // 
@@ -206,6 +219,8 @@
             this.Name = "MainForm";
             this.Text = "DCode Reader";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyUp);
             this.MenuMain.ResumeLayout(false);
             this.MenuMain.PerformLayout();
             this.ResumeLayout(false);
@@ -234,6 +249,9 @@
         private System.Windows.Forms.ToolStripMenuItem Menu_exit;
         private System.Windows.Forms.RichTextBox Content;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.OpenFileDialog OpenFileDialogMain;
+        private System.Windows.Forms.SaveFileDialog SaveFileDialogMain;
+        private System.Windows.Forms.ToolStripMenuItem Menu_novo;
     }
 }
 

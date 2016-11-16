@@ -10,3 +10,5 @@ C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeRe
 C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeReader.pdb
 C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\bin\Debug\DCode.dll
 C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\bin\Debug\DCode.pdb
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeReader.SettingsForm.resources
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeReader.DCodeFileProps.resources

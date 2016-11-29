@@ -26,13 +26,16 @@
             this.lineNumber = new System.Windows.Forms.CheckBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.AparenciaGroupBox = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ColorThemeLabel = new System.Windows.Forms.Label();
             this.AparenciaGroupBox.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lineNumber
             // 
             this.lineNumber.AutoSize = true;
-            this.lineNumber.Location = new System.Drawing.Point(3, 3);
+            this.lineNumber.Location = new System.Drawing.Point(6, 35);
             this.lineNumber.Name = "lineNumber";
             this.lineNumber.Size = new System.Drawing.Size(129, 17);
             this.lineNumber.TabIndex = 0;
@@ -49,19 +52,39 @@
             // 
             // AparenciaGroupBox
             // 
-            this.AparenciaGroupBox.Controls.Add(this.lineNumber);
+            this.AparenciaGroupBox.Controls.Add(this.panel1);
             this.AparenciaGroupBox.Location = new System.Drawing.Point(199, 12);
             this.AparenciaGroupBox.Name = "AparenciaGroupBox";
-            this.AparenciaGroupBox.Size = new System.Drawing.Size(413, 282);
+            this.AparenciaGroupBox.Size = new System.Drawing.Size(413, 138);
             this.AparenciaGroupBox.TabIndex = 4;
             this.AparenciaGroupBox.TabStop = false;
             this.AparenciaGroupBox.Text = "Aparência";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lineNumber);
+            this.panel1.Controls.Add(this.ColorThemeLabel);
+            this.panel1.Location = new System.Drawing.Point(6, 19);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(401, 113);
+            this.panel1.TabIndex = 0;
+            // 
+            // ColorThemeLabel
+            // 
+            this.ColorThemeLabel.AutoSize = true;
+            this.ColorThemeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColorThemeLabel.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.ColorThemeLabel.Location = new System.Drawing.Point(3, 0);
+            this.ColorThemeLabel.Name = "ColorThemeLabel";
+            this.ColorThemeLabel.Size = new System.Drawing.Size(74, 13);
+            this.ColorThemeLabel.TabIndex = 0;
+            this.ColorThemeLabel.Text = "ColorTheme";
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(624, 306);
             this.Controls.Add(this.AparenciaGroupBox);
             this.Controls.Add(this.treeView1);
@@ -72,7 +95,8 @@
             this.Text = "Configurações";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsForm_FormClosing);
             this.AparenciaGroupBox.ResumeLayout(false);
-            this.AparenciaGroupBox.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -82,5 +106,7 @@
         private System.Windows.Forms.CheckBox lineNumber;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.GroupBox AparenciaGroupBox;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label ColorThemeLabel;
     }
 }

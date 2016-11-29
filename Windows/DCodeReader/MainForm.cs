@@ -21,7 +21,7 @@ namespace DCodeReader {
         private DCodeFile file;
 
         // Forms
-        private static SettingsForm sett = new SettingsForm(prefs);
+        //private static SettingsForm sett = new SettingsForm(prefs);
 
         // Static variables
         private static int EMPTY = 100, ALSAVED = 101, NONSAVED = 102;
@@ -86,6 +86,23 @@ namespace DCodeReader {
             //return false;
         }
 
+        private void openFile() {
+            OpenFileDialogMain.FileName = "";
+            OpenFileDialogMain.ShowDialog();
+            if (OpenFileDialogMain.FileName != "") {
+                file = new DCodeFile(OpenFileDialogMain.FileName);
+
+                if (file.getStatusKey() == DCodeFile.ALRIGHT) {
+                    this.setProgramStatus(ALSAVED);
+                    Content.Text = file.getText();
+                } else {
+                    MessageBox.Show("Arquivo corrompido, ou com versão incompatível do encoder", "Fatal error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.setProgramStatus(EMPTY);
+                    this.Text = GlobalValues.AppName + " - Error Load";
+                }
+            }
+        }
+
         // Methods
 
         private bool saveFileDialog() {
@@ -112,20 +129,7 @@ namespace DCodeReader {
         }
 
         private void Manu_abrir_Click(object sender, EventArgs e) {
-            OpenFileDialogMain.FileName = "";
-            OpenFileDialogMain.ShowDialog();
-            if (OpenFileDialogMain.FileName != "") {
-                file = new DCodeFile(OpenFileDialogMain.FileName);
-
-                if (file.getStatusKey() == DCodeFile.ALRIGHT) {
-                    this.setProgramStatus(ALSAVED);
-                    Content.Text = file.getText();
-                } else {
-                    MessageBox.Show("Arquivo corrompido, ou com versão incompatível do encoder", "Fatal error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.setProgramStatus(EMPTY);
-                    this.Text = GlobalValues.AppName + " - Error Load";
-                }
-            }
+            openFile();
         }
 
         private void Manu_salvar_Click(object sender, EventArgs e) {
@@ -158,7 +162,7 @@ namespace DCodeReader {
         }
 
         private void Menu_Settings_Click(object sender, EventArgs e) {
-            sett.ShowDialog();
+            new SettingsForm(prefs).ShowDialog();
         }
 
         private void Menu_exit_Click(object sender, EventArgs e) {
@@ -206,36 +210,21 @@ namespace DCodeReader {
             }
         }
 
-        private bool controlPresses = false;
-
-        private void keyDown(KeyEventArgs e) {
-            //MessageBox.Show(e.KeyCode +  "");
-            if (e.KeyCode.ToString() == "ControlKey")
-                controlPresses = true;
-            if(controlPresses)
-                MessageBox.Show("Ctrl + " + e.ToString());
-        }
-
-        private void keyUp(KeyEventArgs e) {
-            if (e.KeyCode.ToString() == "ControlKey")
-                controlPresses = false;
-            //MessageBox.Show(e.KeyCode + "");
-        }
-
-        private void MainForm_KeyDown(object sender, KeyEventArgs e) {
-            keyDown(e);
-        }
-
-        private void Content_KeyDown(object sender, KeyEventArgs e) {
-            keyDown(e);
-        }
-
-        private void Content_KeyUp(object sender, KeyEventArgs e) {
-            keyUp(e);
-        }
-
-        private void MainForm_KeyUp(object sender, KeyEventArgs e) {
-            keyUp(e);
+        private void keyDown(object sender, KeyEventArgs e) {
+            if (e.Modifiers == Keys.Control) {
+                if (e.KeyCode == Keys.S) {
+                    saveFile();
+                } else
+                if (e.KeyCode == Keys.O) {
+                    openFile();
+                } else
+                if (e.KeyCode == Keys.N) {
+                    setProgramStatus(EMPTY);
+                }
+            } else
+            if (e.KeyCode == Keys.F1) {
+                Menu_help_Click(sender, e);
+            }
         }
 
         /*public int getX() {

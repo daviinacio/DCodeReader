@@ -198,6 +198,7 @@
             // Content
             // 
             this.Content.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Content.Location = new System.Drawing.Point(0, 24);
             this.Content.Name = "Content";
             this.Content.Size = new System.Drawing.Size(681, 416);
@@ -205,8 +206,7 @@
             this.Content.Text = "";
             this.Content.WordWrap = false;
             this.Content.TextChanged += new System.EventHandler(this.Content_TextChanged);
-            this.Content.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Content_KeyDown);
-            this.Content.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Content_KeyUp);
+            this.Content.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
             // 
             // MainForm
             // 
@@ -219,8 +219,7 @@
             this.Name = "MainForm";
             this.Text = "DCode Reader";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyUp);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
             this.MenuMain.ResumeLayout(false);
             this.MenuMain.PerformLayout();
             this.ResumeLayout(false);

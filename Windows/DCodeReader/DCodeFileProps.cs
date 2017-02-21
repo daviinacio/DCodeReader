@@ -14,6 +14,12 @@ namespace DCodeReader {
 
         private DCodeFile file;
 
+        private void InitTheme() {
+            this.BackColor = Styles.getTheme().getBackGround();
+            this.ForeColor = Styles.getTheme().getForeGround();
+            //Props_Cancel.BackColor = this.BackColor + Color.FromArgb(0x222);
+        }
+
         public DCodeFileProps(DCodeFile file) {
             InitializeComponent();
             this.file = file;
@@ -24,6 +30,7 @@ namespace DCodeReader {
                 EncodeTypeEdit.Text = file.getEncodeType();
                 ContentEdit.Text = file.getText();
             }
+            InitTheme();
         }
 
         private void Props_OK_Click(object sender, EventArgs e) {
@@ -35,6 +42,10 @@ namespace DCodeReader {
 
         private void Props_Cancel_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void DCodeFileProps_Load(object sender, EventArgs e) {
+
         }
     }
 }

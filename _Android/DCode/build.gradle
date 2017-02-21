@@ -1,0 +1,11 @@
+configurations.maybeCreate("default")
+artifacts.add("default", file('DCode.jar'))
+dependencies {
+    //compile files('DCode.jar')
+}
+
+/*configure(':app') {
+    dependencies {
+        compile project(':DCode') // causes problems - NOT ANYMORE!
+    }
+}*/

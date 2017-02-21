@@ -5,7 +5,7 @@
  */
 package com.daviapps.dcodeReader;
 
-import com.daviapps.DCode.DCodeFile;
+import com.daviapps.dcode.DCodeFile;
 
 /**
  *

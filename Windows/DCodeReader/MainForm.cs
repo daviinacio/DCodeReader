@@ -29,13 +29,31 @@ namespace DCodeReader {
         // Private variables
         private int programState = EMPTY;
 
+        // Theme
+        private void InitTheme() {
+            MenuMain.BackColor = Styles.getTheme().getMenuBack();
+            MenuMain.ForeColor = Styles.getTheme().getMenuFore();
+            Content.BackColor = Styles.getTheme().getBackGround();
+            Content.ForeColor = Styles.getTheme().getForeGround();
+        }
+
         // Form action
-        public MainForm() {
+        private void Constructor() {
             InitializeComponent();
             OpenFileDialogMain.DefaultExt = GlobalValues.DefaultExt;
             OpenFileDialogMain.Filter = GlobalValues.Filter;
             SaveFileDialogMain.DefaultExt = GlobalValues.DefaultExt;
             SaveFileDialogMain.Filter = GlobalValues.Filter;
+            InitTheme();
+        }
+
+        public MainForm() {
+            Constructor();
+        }
+
+        public MainForm(String fileDir) {
+            Constructor();
+            openFile(fileDir);
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e) {
@@ -87,8 +105,15 @@ namespace DCodeReader {
         }
 
         private void openFile() {
-            OpenFileDialogMain.FileName = "";
-            OpenFileDialogMain.ShowDialog();
+            openFile("");
+        }
+
+        private void openFile(String fileDir) {
+            if (fileDir.Equals("")) {
+                OpenFileDialogMain.FileName = "";
+                OpenFileDialogMain.ShowDialog();
+            } else
+                OpenFileDialogMain.FileName = fileDir;
             if (OpenFileDialogMain.FileName != "") {
                 file = new DCodeFile(OpenFileDialogMain.FileName);
 
@@ -180,11 +205,16 @@ namespace DCodeReader {
 
         // Ajuda
         private void Menu_help_Click(object sender, EventArgs e) {
-            MessageBox.Show("Ajuda");
+            Styles.currentTheme = 0;
+            InitTheme();
+            //MessageBox.Show("Ajuda");
         }
 
         private void Menu_sobre_Click(object sender, EventArgs e) {
-            MessageBox.Show("Sobre");
+            Styles.currentTheme = 1;
+            InitTheme();
+            //System.Diagnostics.Process.Start(@"D:\\Biblioteca\\Documentos\\Desktop\\C++\\MyServer\\MyServer.exe");
+            //MessageBox.Show("Sobre");
         }
 
         // Getters and Setters
@@ -242,5 +272,28 @@ namespace DCodeReader {
         public int getHeight() {
             return this.Height;
         }*/
+
+        private void menu_DropDownClosed(object sender, EventArgs e) {
+            ((ToolStripMenuItem) sender).ForeColor = Color.FromArgb(0xffffff);
+        }
+
+        private void menu_DropDownOpened(object sender, EventArgs e) {
+            ((ToolStripMenuItem) sender).ForeColor = Color.FromArgb(0x000000);
+        }
+
+        private void close_control_menu_Click(object sender, EventArgs e) {
+            this.Close();
+        }
+
+        private void minimize_control_menu_Click(object sender, EventArgs e) {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void maximize_control_menu_Click(object sender, EventArgs e) {
+            if(this.WindowState.Equals(FormWindowState.Normal))
+                this.WindowState = FormWindowState.Maximized;
+            else
+                this.WindowState = FormWindowState.Normal;
+        }
     }
 }

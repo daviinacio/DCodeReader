@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/create_new"
+        android:title="Novo" >
+        <!-- "file" submenu -->
+        <menu>
+            <item android:id="@+id/create_dcodeFile"
+                android:title="DCode file" />
+        </menu>
+    </item>
+    <item android:id="@+id/abrir_menu"
+        android:title="Abrir" />
+    <item android:id="@+id/salvar_menu"
+        android:title="Salvar" />
+    <item android:id="@+id/salvar_como_menu"
+        android:title="Salvar como" />
+    <item android:id="@+id/apagar_menu"
+        android:title="Apager" />
+    <item android:id="@+id/detalhes_menu"
+        android:title="Detalhes" />
+    <item android:id="@+id/settings_menu"
+        android:title="Configurações" />
+    <item android:id="@+id/fechar_menu"
+        android:title="Fechar" style="@style/Close_Menu">
+        <solid android:color="#00000000" />
+    </item>
+</menu>

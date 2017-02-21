@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Menu String -->
+    <string name="menu_new">Novo</string>
+    <string name="menu_open">Abrir</string>
+    <string name="menu_save">Salvar</string>
+    <string name="menu_saveAs">Salvar como</string>
+    <string name="menu_delete">Apagar</string>
+    <string name="menu_details">Detalhes</string>
+    <string name="menu_settings">Configurações</string>
+    <string name="menu_close">Fechar</string>
+
+    <string name="menu_new_DCodeFile">DCode File</string>
+    <string name="menu_new_DDBFile">DCode DataBase File</string>
+    <string name="menu_new_TextFile">Arquivo de texto</string>
+</resources>

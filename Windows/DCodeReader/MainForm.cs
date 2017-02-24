@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using System.Threading;
+using System.IO;
 
 namespace DCodeReader {
 
@@ -17,7 +18,8 @@ namespace DCodeReader {
         public static int x, y, width, height;
 
         //private System.Windows.Threading.DispatcherTimer tempoTimer = new System.Windows.Threading.DispatcherTimer();
-        private static DCodePreferences prefs = new DCodePreferences(new DCodeFile(GlobalValues.prefsPath));
+        //private static DCodePreferences prefs = new DCodePreferences(new DCodeFile(GlobalValues.prefsPath));
+        private System.Windows.Forms.Timer backTast;
         private DCodeFile file;
 
         // Forms
@@ -31,10 +33,31 @@ namespace DCodeReader {
 
         // Theme
         private void InitTheme() {
+            int _programState = programState;
             MenuMain.BackColor = Styles.getTheme().getMenuBack();
             MenuMain.ForeColor = Styles.getTheme().getMenuFore();
             Content.BackColor = Styles.getTheme().getBackGround();
             Content.ForeColor = Styles.getTheme().getForeGround();
+            lineNumber_panel.BackColor = Styles.getTheme().getBackGround();
+            lineNumber_label.ForeColor = Styles.getTheme().getForeGround();
+            tableLayoutPanel.BackColor = Styles.getTheme().getLineNumberSeparator();
+            this.setProgramStatus(_programState);
+        }
+
+        private void InitBorder() {
+            int border = Program.prefs.GetInt("Border", 0);
+            switch (border) {
+                case 0:
+                    Control_Menu.Visible = false;
+                    this.Padding = new Padding(0);
+                    this.FormBorderStyle = FormBorderStyle.Sizable;
+                    break;
+                case 1:
+                    Control_Menu.Visible = true;
+                    this.Padding = new Padding(2);
+                    this.FormBorderStyle = FormBorderStyle.None;
+                    break;
+            }
         }
 
         // Form action
@@ -45,6 +68,7 @@ namespace DCodeReader {
             SaveFileDialogMain.DefaultExt = GlobalValues.DefaultExt;
             SaveFileDialogMain.Filter = GlobalValues.Filter;
             InitTheme();
+            InitBorder();
         }
 
         public MainForm() {
@@ -54,6 +78,20 @@ namespace DCodeReader {
         public MainForm(String fileDir) {
             Constructor();
             openFile(fileDir);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e) {
+            int x = Program.prefs.GetInt("Location.x"), y = Program.prefs.GetInt("Location.y");
+            if (x > -1 && y > -1) {
+                this.Location = new Point(x, y);
+            }
+
+            InitPrefs();
+
+            this.backTast = new System.Windows.Forms.Timer();
+            this.backTast.Tick += new EventHandler(this.backTasking);
+            this.backTast.Interval = 100;
+            this.backTast.Start();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e) {
@@ -86,9 +124,15 @@ namespace DCodeReader {
 
         }
 
+        private void InitPrefs() {
+            lineNumber_panel.Visible = Program.prefs.GetBool("lineNumber");
+            lineNumber_editar_menu.Checked = Program.prefs.GetBool("lineNumber");
+        }
+
         // Component action
         private void Content_TextChanged(object sender, EventArgs e) {
             this.setProgramStatus(NONSAVED);
+            this.updateLineNumber = true;
         }
 
         // Loaders methods
@@ -120,6 +164,7 @@ namespace DCodeReader {
                 if (file.getStatusKey() == DCodeFile.ALRIGHT) {
                     this.setProgramStatus(ALSAVED);
                     Content.Text = file.getText();
+                    this.setProgramStatus(ALSAVED);
                 } else {
                     MessageBox.Show("Arquivo corrompido, ou com versão incompatível do encoder", "Fatal error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.setProgramStatus(EMPTY);
@@ -134,16 +179,51 @@ namespace DCodeReader {
             SaveFileDialogMain.ShowDialog();
             if (SaveFileDialogMain.FileName != "") {
                 file = new DCodeFile(SaveFileDialogMain.FileName);
-
-                if (file.getStatusKey() == DCodeFile.ALRIGHT ||
-                    file.getStatusKey() == DCodeFile.EMPTY) {
-                    new DCodeFileProps(file).ShowDialog();
+                new DCodeFileProps(file).ShowDialog();
+                if (file.getStatusKey() == DCodeFile.ALRIGHT) {
                     file.setText(Content.Text);
                     this.setProgramStatus(ALSAVED);
                     return true;
-                }
+                } else
+                    Menu_novo_Click(null, null);
             }
             return false;
+        }
+
+        private bool changeDialogShowing = false;
+        private bool updateLineNumber = false;
+
+        private void backTasking(object sender, EventArgs e) {
+            if (updateLineNumber) {
+                updateLineNumber = false;
+                int length = DCode.countNum(Content.Text, '\n') + 1;
+                lineNumber_label.Text = "0";
+                lineNumber_label.Text += length > 10 ? "0": "";
+                lineNumber_label.Text += length > 100 ? "00" : "";
+                lineNumber_label.Text += "\n";
+                for (int i = 1; i < length; i++) {
+                    lineNumber_label.Text += length > 10 && i < 10 ? "0" : "";
+                    lineNumber_label.Text += length > 100 && i < 100 ? "00" : "";
+                    lineNumber_label.Text += i + "\n";
+                    //if (length >= 10 && i < 10)
+                    //    lineNumber_label.Text += "0" + i + "\n";
+                    //else
+                    //    lineNumber_label.Text += i + "\n";
+                }
+            }
+            if (file == null) return;
+            if (!file.exists()) return;
+            if (programState.Equals(ALSAVED)) {
+                if (!file.getText().Equals(Content.Text) && changeDialogShowing == false) {
+                    changeDialogShowing = true;
+                    if (MessageBox.Show("Outro programa fez alterações nesse arquivo.\nAtualizar editor?", "Arquivo alterado", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes) {
+                        Content.Text = file.getText();
+                        this.setProgramStatus(ALSAVED);
+                        changeDialogShowing = false;
+                    }
+                }
+                this.Text = GlobalValues.AppName + " - " + file.getTitle();
+            }
         }
 
         // Menu click
@@ -187,7 +267,8 @@ namespace DCodeReader {
         }
 
         private void Menu_Settings_Click(object sender, EventArgs e) {
-            new SettingsForm(prefs).ShowDialog();
+            new SettingsForm().ShowDialog();
+            InitPrefs();
         }
 
         private void Menu_exit_Click(object sender, EventArgs e) {
@@ -205,16 +286,12 @@ namespace DCodeReader {
 
         // Ajuda
         private void Menu_help_Click(object sender, EventArgs e) {
-            Styles.currentTheme = 0;
-            InitTheme();
-            //MessageBox.Show("Ajuda");
+            MessageBox.Show("Ajuda");
         }
 
         private void Menu_sobre_Click(object sender, EventArgs e) {
-            Styles.currentTheme = 1;
-            InitTheme();
             //System.Diagnostics.Process.Start(@"D:\\Biblioteca\\Documentos\\Desktop\\C++\\MyServer\\MyServer.exe");
-            //MessageBox.Show("Sobre");
+            MessageBox.Show("Sobre");
         }
 
         // Getters and Setters
@@ -222,11 +299,12 @@ namespace DCodeReader {
         private void setProgramStatus(int state) {
             this.programState = state;
             if (state == EMPTY) {
-                this.Text = GlobalValues.AppName;
                 OpenFileDialogMain.FileName = "";
                 SaveFileDialogMain.FileName = "";
                 Content.Text = "";
                 file = null;
+                this.Text = GlobalValues.AppName;
+                this.programState = EMPTY;
             } else
             if (state == ALSAVED) {
                 if (file != null) {
@@ -250,6 +328,10 @@ namespace DCodeReader {
                 } else
                 if (e.KeyCode == Keys.N) {
                     setProgramStatus(EMPTY);
+                } else
+                if (e.KeyCode == Keys.L) {
+                    Program.prefs.Set("lineNumber", !Program.prefs.GetBool("lineNumber"));
+                    InitPrefs();
                 }
             } else
             if (e.KeyCode == Keys.F1) {
@@ -294,6 +376,33 @@ namespace DCodeReader {
                 this.WindowState = FormWindowState.Maximized;
             else
                 this.WindowState = FormWindowState.Normal;
+        }
+
+        // Style Menu
+
+        private void light_theme_style_menu_Click(object sender, EventArgs e) {
+            Styles.currentTheme = 0;
+            InitTheme();
+        }
+
+        private void dark_theme_style_menu_Click(object sender, EventArgs e) {
+            Styles.currentTheme = 1;
+            InitTheme();
+        }
+
+        private void windows_border_style_menu_Click(object sender, EventArgs e) {
+            Program.prefs.Set("Border", 0);
+            InitBorder();
+        }
+
+        private void custom_border_style_menu_Click(object sender, EventArgs e) {
+            Program.prefs.Set("Border", 1);
+            InitBorder();
+        }
+
+        private void lineNumber_editar_menu_Click(object sender, EventArgs e) {
+            Program.prefs.Set("lineNumber", lineNumber_editar_menu.Checked);
+            InitPrefs();
         }
     }
 }

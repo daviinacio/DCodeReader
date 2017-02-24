@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace DCodeReader {
     class Theme {
-        private Color background, foreground, menuBack, menuFore;
+        private Color background, foreground, menuBack, menuFore, lineNumberSeparator;
         private HighLight_Char [] highLight;
-        public Theme(Color background, Color foreground, Color menuBack, Color menuFore, HighLight_Char [] highLight) {
+        public Theme(Color background, Color foreground, Color menuBack, Color menuFore, HighLight_Char [] highLight, Color lineNumberSeparator) {
             this.background = background; this.foreground = foreground;
             this.menuBack = menuBack; this.menuFore = menuFore;
+            this.lineNumberSeparator = lineNumberSeparator;
             this.highLight = highLight;
         }
 
@@ -28,6 +29,10 @@ namespace DCodeReader {
         }
         public Color getMenuFore() {
             return menuFore;
+        }
+
+        public Color getLineNumberSeparator() {
+            return lineNumberSeparator;
         }
 
         public Color getHighLightColor(char character) {

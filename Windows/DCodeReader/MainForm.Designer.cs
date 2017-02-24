@@ -36,6 +36,13 @@
             this.Menu_help = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.Menu_sobre = new System.Windows.Forms.ToolStripMenuItem();
+            this.style_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.theme_style_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.light_theme_style_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.dark_theme_style_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.border_style_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.windows_border_style_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.custom_border_style_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenFileDialogMain = new System.Windows.Forms.OpenFileDialog();
             this.SaveFileDialogMain = new System.Windows.Forms.SaveFileDialog();
             this.Content = new System.Windows.Forms.RichTextBox();
@@ -45,10 +52,17 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.dCodeReaderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.close_control_menu = new System.Windows.Forms.ToolStripMenuItem();
-            this.minimize_control_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.maximize_control_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.minimize_control_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.lineNumber_label = new System.Windows.Forms.Label();
+            this.lineNumber_panel = new System.Windows.Forms.Panel();
+            this.lineNumber_editar_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.MenuMain.SuspendLayout();
             this.Control_Menu.SuspendLayout();
+            this.tableLayoutPanel.SuspendLayout();
+            this.lineNumber_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuMain
@@ -58,7 +72,8 @@
             this.MenuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gfdfgfgToolStripMenuItem,
             this.fgdgdfgdfgToolStripMenuItem,
-            this.ajudaToolStripMenuItem});
+            this.ajudaToolStripMenuItem,
+            this.style_menu});
             this.MenuMain.Location = new System.Drawing.Point(2, 27);
             this.MenuMain.Name = "MenuMain";
             this.MenuMain.Size = new System.Drawing.Size(657, 25);
@@ -165,7 +180,9 @@
             // 
             this.fgdgdfgdfgToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Menu_undo,
-            this.Menu_endo});
+            this.Menu_endo,
+            this.toolStripSeparator4,
+            this.lineNumber_editar_menu});
             this.fgdgdfgdfgToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
             this.fgdgdfgdfgToolStripMenuItem.Name = "fgdgdfgdfgToolStripMenuItem";
             this.fgdgdfgdfgToolStripMenuItem.Size = new System.Drawing.Size(56, 21);
@@ -224,17 +241,82 @@
             this.Menu_sobre.Text = "Sobre";
             this.Menu_sobre.Click += new System.EventHandler(this.Menu_sobre_Click);
             // 
+            // style_menu
+            // 
+            this.style_menu.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.style_menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.theme_style_menu,
+            this.border_style_menu});
+            this.style_menu.ForeColor = System.Drawing.SystemColors.Window;
+            this.style_menu.Name = "style_menu";
+            this.style_menu.Size = new System.Drawing.Size(50, 21);
+            this.style_menu.Text = "Style";
+            this.style_menu.DropDownClosed += new System.EventHandler(this.menu_DropDownClosed);
+            this.style_menu.DropDownOpened += new System.EventHandler(this.menu_DropDownOpened);
+            // 
+            // theme_style_menu
+            // 
+            this.theme_style_menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.light_theme_style_menu,
+            this.dark_theme_style_menu});
+            this.theme_style_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.theme_style_menu.Name = "theme_style_menu";
+            this.theme_style_menu.Size = new System.Drawing.Size(116, 22);
+            this.theme_style_menu.Text = "Theme";
+            // 
+            // light_theme_style_menu
+            // 
+            this.light_theme_style_menu.Name = "light_theme_style_menu";
+            this.light_theme_style_menu.Size = new System.Drawing.Size(104, 22);
+            this.light_theme_style_menu.Text = "Light";
+            this.light_theme_style_menu.Click += new System.EventHandler(this.light_theme_style_menu_Click);
+            // 
+            // dark_theme_style_menu
+            // 
+            this.dark_theme_style_menu.Name = "dark_theme_style_menu";
+            this.dark_theme_style_menu.Size = new System.Drawing.Size(104, 22);
+            this.dark_theme_style_menu.Text = "Dark";
+            this.dark_theme_style_menu.Click += new System.EventHandler(this.dark_theme_style_menu_Click);
+            // 
+            // border_style_menu
+            // 
+            this.border_style_menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.windows_border_style_menu,
+            this.custom_border_style_menu});
+            this.border_style_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.border_style_menu.Name = "border_style_menu";
+            this.border_style_menu.Size = new System.Drawing.Size(116, 22);
+            this.border_style_menu.Text = "Border";
+            // 
+            // windows_border_style_menu
+            // 
+            this.windows_border_style_menu.Name = "windows_border_style_menu";
+            this.windows_border_style_menu.Size = new System.Drawing.Size(129, 22);
+            this.windows_border_style_menu.Text = "Windows";
+            this.windows_border_style_menu.Click += new System.EventHandler(this.windows_border_style_menu_Click);
+            // 
+            // custom_border_style_menu
+            // 
+            this.custom_border_style_menu.Name = "custom_border_style_menu";
+            this.custom_border_style_menu.Size = new System.Drawing.Size(129, 22);
+            this.custom_border_style_menu.Text = "Custom";
+            this.custom_border_style_menu.Click += new System.EventHandler(this.custom_border_style_menu_Click);
+            // 
             // Content
             // 
             this.Content.BackColor = System.Drawing.SystemColors.Control;
             this.Content.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Content.Location = new System.Drawing.Point(2, 52);
+            this.Content.Location = new System.Drawing.Point(19, 0);
+            this.Content.Margin = new System.Windows.Forms.Padding(0);
             this.Content.Name = "Content";
-            this.Content.Size = new System.Drawing.Size(657, 347);
+            this.Content.ShowSelectionMargin = true;
+            this.Content.Size = new System.Drawing.Size(638, 347);
             this.Content.TabIndex = 2;
             this.Content.Text = "";
+            this.Content.TextChanged += new System.EventHandler(this.Content_TextChanged);
+            this.Content.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
             // 
             // icon_control_menu
             // 
@@ -284,15 +366,6 @@
             this.close_control_menu.Text = "x";
             this.close_control_menu.Click += new System.EventHandler(this.close_control_menu_Click);
             // 
-            // minimize_control_menu
-            // 
-            this.minimize_control_menu.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.minimize_control_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minimize_control_menu.Name = "minimize_control_menu";
-            this.minimize_control_menu.Size = new System.Drawing.Size(25, 21);
-            this.minimize_control_menu.Text = "_";
-            this.minimize_control_menu.Click += new System.EventHandler(this.minimize_control_menu_Click);
-            // 
             // maximize_control_menu
             // 
             this.maximize_control_menu.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -302,13 +375,76 @@
             this.maximize_control_menu.Size = new System.Drawing.Size(28, 21);
             this.maximize_control_menu.Click += new System.EventHandler(this.maximize_control_menu_Click);
             // 
+            // minimize_control_menu
+            // 
+            this.minimize_control_menu.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.minimize_control_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minimize_control_menu.Name = "minimize_control_menu";
+            this.minimize_control_menu.Size = new System.Drawing.Size(25, 21);
+            this.minimize_control_menu.Text = "_";
+            this.minimize_control_menu.Click += new System.EventHandler(this.minimize_control_menu_Click);
+            // 
+            // tableLayoutPanel
+            // 
+            this.tableLayoutPanel.ColumnCount = 2;
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.Controls.Add(this.Content, 1, 0);
+            this.tableLayoutPanel.Controls.Add(this.lineNumber_panel, 0, 0);
+            this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel.Location = new System.Drawing.Point(2, 52);
+            this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel.Name = "tableLayoutPanel";
+            this.tableLayoutPanel.RowCount = 1;
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(657, 347);
+            this.tableLayoutPanel.TabIndex = 6;
+            // 
+            // lineNumber_label
+            // 
+            this.lineNumber_label.AutoSize = true;
+            this.lineNumber_label.BackColor = System.Drawing.Color.Transparent;
+            this.lineNumber_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lineNumber_label.Location = new System.Drawing.Point(0, 0);
+            this.lineNumber_label.Margin = new System.Windows.Forms.Padding(0);
+            this.lineNumber_label.Name = "lineNumber_label";
+            this.lineNumber_label.Size = new System.Drawing.Size(18, 20);
+            this.lineNumber_label.TabIndex = 0;
+            this.lineNumber_label.Text = "0";
+            // 
+            // lineNumber_panel
+            // 
+            this.lineNumber_panel.AutoSize = true;
+            this.lineNumber_panel.Controls.Add(this.lineNumber_label);
+            this.lineNumber_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lineNumber_panel.Location = new System.Drawing.Point(0, 0);
+            this.lineNumber_panel.Margin = new System.Windows.Forms.Padding(0, 0, 1, 0);
+            this.lineNumber_panel.Name = "lineNumber_panel";
+            this.lineNumber_panel.Size = new System.Drawing.Size(18, 347);
+            this.lineNumber_panel.TabIndex = 3;
+            // 
+            // lineNumber_editar_menu
+            // 
+            this.lineNumber_editar_menu.CheckOnClick = true;
+            this.lineNumber_editar_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lineNumber_editar_menu.Name = "lineNumber_editar_menu";
+            this.lineNumber_editar_menu.Size = new System.Drawing.Size(203, 22);
+            this.lineNumber_editar_menu.Text = "Line number [Ctrl + L]";
+            this.lineNumber_editar_menu.Click += new System.EventHandler(this.lineNumber_editar_menu_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(200, 6);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(661, 401);
-            this.Controls.Add(this.Content);
+            this.Controls.Add(this.tableLayoutPanel);
             this.Controls.Add(this.MenuMain);
             this.Controls.Add(this.Control_Menu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -319,11 +455,16 @@
             this.Padding = new System.Windows.Forms.Padding(2);
             this.Text = "DCode Reader";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
             this.MenuMain.ResumeLayout(false);
             this.MenuMain.PerformLayout();
             this.Control_Menu.ResumeLayout(false);
             this.Control_Menu.PerformLayout();
+            this.tableLayoutPanel.ResumeLayout(false);
+            this.tableLayoutPanel.PerformLayout();
+            this.lineNumber_panel.ResumeLayout(false);
+            this.lineNumber_panel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,6 +502,18 @@
         private System.Windows.Forms.ToolStripMenuItem close_control_menu;
         private System.Windows.Forms.ToolStripMenuItem minimize_control_menu;
         private System.Windows.Forms.ToolStripMenuItem maximize_control_menu;
+        private System.Windows.Forms.ToolStripMenuItem style_menu;
+        private System.Windows.Forms.ToolStripMenuItem theme_style_menu;
+        private System.Windows.Forms.ToolStripMenuItem light_theme_style_menu;
+        private System.Windows.Forms.ToolStripMenuItem dark_theme_style_menu;
+        private System.Windows.Forms.ToolStripMenuItem border_style_menu;
+        private System.Windows.Forms.ToolStripMenuItem windows_border_style_menu;
+        private System.Windows.Forms.ToolStripMenuItem custom_border_style_menu;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
+        private System.Windows.Forms.Label lineNumber_label;
+        private System.Windows.Forms.Panel lineNumber_panel;
+        private System.Windows.Forms.ToolStripMenuItem lineNumber_editar_menu;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }
 

@@ -12,6 +12,7 @@ namespace DCodeReader {
 
     public partial class DCodeFileProps : Form {
 
+        private System.Windows.Forms.Timer backTast;
         private DCodeFile file;
 
         private void InitTheme() {
@@ -30,7 +31,18 @@ namespace DCodeReader {
                 EncodeTypeEdit.Text = file.getEncodeType();
                 ContentEdit.Text = file.getText();
             }
-            InitTheme();
+            //InitTheme();
+        }
+
+        private void DCodeFileProps_Load(object sender, EventArgs e) {
+            this.backTast = new System.Windows.Forms.Timer();
+            this.backTast.Tick += new EventHandler(this.backTasking);
+            this.backTast.Interval = 100;
+            this.backTast.Start();
+        }
+
+        private void DCodeFileProps_FormClosing(object sender, FormClosingEventArgs e) {
+            this.backTast.Stop();
         }
 
         private void Props_OK_Click(object sender, EventArgs e) {
@@ -44,8 +56,10 @@ namespace DCodeReader {
             this.Close();
         }
 
-        private void DCodeFileProps_Load(object sender, EventArgs e) {
+        private void backTasking(object sender, EventArgs e) {
+            bool titleError = TitleEdit.Text.IndexOf('_') > -1;
 
+            Props_OK.Enabled = !titleError;
         }
     }
 }

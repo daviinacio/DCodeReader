@@ -16,20 +16,26 @@ namespace DCodeReader {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            MainForm mainForm;
+
             String settingsFolder = (Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\DaviApps\\DCode Reader\\settings\\");
 
             // Initialize prefs
             prefs = new DCodePreferences(new DCodeFile(settingsFolder + "settings.DCode"));
             prefs.Add("Theme", 0);
-            prefs.save();
+            prefs.Add("Border", 0);
+            prefs.Add("Location.x", -1);
+            prefs.Add("Location.y", -1);
+            prefs.Add("lineNumber", true);
 
             Styles.currentTheme = prefs.GetInt("Theme", 0);
 
+            mainForm = new MainForm();
             if (args.Length >= 1) {
                 FileInfo file = new FileInfo(args [0]);
                 if (file.Exists){
                     if (new DCodeFile(file.ToString()).getStatusKey().Equals(DCodeFile.ALRIGHT)) {
-                        Application.Run(new MainForm(file.ToString())); return;
+                        mainForm = new MainForm(file.ToString());
                     } else {
                         DialogResult m = MessageBox.Show("Arquivo corrompido, ou com versão incompatível do encoder.\nContinuar?", "Fatal error", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                         if (m == DialogResult.No)
@@ -38,9 +44,12 @@ namespace DCodeReader {
                     //MessageBox.Show(file.ToString());
                 }
             }
-            
-            Application.Run(new MainForm());
-            
+            Application.Run(mainForm);
+
+            prefs.Set("Theme", Styles.currentTheme);
+            prefs.Set("Location.x", mainForm.Location.X);
+            prefs.Set("Location.y", mainForm.Location.Y);
+            prefs.save();
         }
     }
 }

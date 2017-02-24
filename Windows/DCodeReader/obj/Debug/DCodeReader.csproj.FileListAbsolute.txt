@@ -15,3 +15,4 @@ C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeRe
 C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeReader.application
 C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeReader.exe
 C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeReader.pdb
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeReader.csprojResolveAssemblyReference.cache

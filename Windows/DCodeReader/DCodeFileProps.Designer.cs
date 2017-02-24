@@ -80,7 +80,7 @@
             this.ContentEdit.Multiline = true;
             this.ContentEdit.Name = "ContentEdit";
             this.ContentEdit.Size = new System.Drawing.Size(273, 69);
-            this.ContentEdit.TabIndex = 3;
+            this.ContentEdit.TabIndex = 5;
             // 
             // EncodeTypeEdit
             // 
@@ -90,7 +90,7 @@
             this.EncodeTypeEdit.Location = new System.Drawing.Point(9, 81);
             this.EncodeTypeEdit.Name = "EncodeTypeEdit";
             this.EncodeTypeEdit.Size = new System.Drawing.Size(273, 26);
-            this.EncodeTypeEdit.TabIndex = 4;
+            this.EncodeTypeEdit.TabIndex = 2;
             // 
             // TitleEdit
             // 
@@ -100,7 +100,7 @@
             this.TitleEdit.Location = new System.Drawing.Point(9, 34);
             this.TitleEdit.Name = "TitleEdit";
             this.TitleEdit.Size = new System.Drawing.Size(273, 26);
-            this.TitleEdit.TabIndex = 5;
+            this.TitleEdit.TabIndex = 1;
             // 
             // Props_Cancel
             // 
@@ -111,7 +111,7 @@
             this.Props_Cancel.Location = new System.Drawing.Point(104, 3);
             this.Props_Cancel.Name = "Props_Cancel";
             this.Props_Cancel.Size = new System.Drawing.Size(94, 30);
-            this.Props_Cancel.TabIndex = 7;
+            this.Props_Cancel.TabIndex = 4;
             this.Props_Cancel.Text = "Cancelar";
             this.Props_Cancel.UseVisualStyleBackColor = false;
             this.Props_Cancel.Click += new System.EventHandler(this.Props_Cancel_Click);
@@ -126,7 +126,7 @@
             this.Props_OK.Location = new System.Drawing.Point(204, 3);
             this.Props_OK.Name = "Props_OK";
             this.Props_OK.Size = new System.Drawing.Size(87, 30);
-            this.Props_OK.TabIndex = 6;
+            this.Props_OK.TabIndex = 3;
             this.Props_OK.Text = "Salvar";
             this.Props_OK.UseVisualStyleBackColor = false;
             this.Props_OK.Click += new System.EventHandler(this.Props_OK_Click);
@@ -187,12 +187,14 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(304, 255);
             this.Controls.Add(this.back_tayoutPanel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DCodeFileProps";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DCodeFileProps";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DCodeFileProps_FormClosing);
             this.Load += new System.EventHandler(this.DCodeFileProps_Load);
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();

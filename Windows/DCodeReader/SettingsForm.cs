@@ -15,18 +15,18 @@ namespace DCodeReader {
         private DCodePreferences prefs;
         private Runnable onSave;
 
-        public SettingsForm(DCodePreferences prefs, Runnable onSave) {
-            This(prefs);
+        /*public SettingsForm(DCodePreferences prefs, Runnable onSave) {
+            This();
             this.onSave = onSave;
+        }*/
+
+        public SettingsForm() {
+            This();
         }
 
-        public SettingsForm(DCodePreferences prefs) {
-            This(prefs);
-        }
-
-        private void This(DCodePreferences prefs) {
+        private void This() {
             InitializeComponent();
-            this.prefs = prefs;
+            this.prefs = Program.prefs;
             initPrefs();
             initComponents();
             if (onSave != null)

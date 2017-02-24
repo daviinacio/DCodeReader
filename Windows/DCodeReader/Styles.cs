@@ -10,11 +10,11 @@ namespace DCodeReader {
         public static int currentTheme = 0;
         public static Theme Light = new Theme(SystemColors.Control, Color.Black, Color.MediumAquamarine, Color.White, new HighLight_Char [] {
             new HighLight_Char('{', Color.Blue)
-        });
+        }, SystemColors.ControlDarkDark);
 
         public static Theme Dark = new Theme(System.Drawing.ColorTranslator.FromHtml("#103933"), Color.FromArgb(0xffffff), Color.MediumAquamarine, Color.White, new HighLight_Char [] {
             new HighLight_Char('{', Color.Blue)
-        });
+        }, Color.MediumAquamarine);
 
         public static Theme getThemeById(int id){
             switch (id) {

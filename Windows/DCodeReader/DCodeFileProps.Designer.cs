@@ -193,7 +193,7 @@
             this.Name = "DCodeFileProps";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "DCodeFileProps";
+            this.Text = "Detalhes";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DCodeFileProps_FormClosing);
             this.Load += new System.EventHandler(this.DCodeFileProps_Load);
             this.groupBox.ResumeLayout(false);

@@ -1,4 +1,4 @@
-﻿using System;
+{DCode_1000 Lines__using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +20,6 @@ namespace DCodeReader {
         //private System.Windows.Threading.DispatcherTimer tempoTimer = new System.Windows.Threading.DispatcherTimer();
         //private static DCodePreferences prefs = new DCodePreferences(new DCodeFile(GlobalValues.prefsPath));
         private System.Windows.Forms.Timer backTast;
-        private System.Windows.Forms.Timer backTast2;
         private DCodeFile file;
 
         // Forms
@@ -44,7 +43,6 @@ namespace DCodeReader {
             tableLayoutPanel.BackColor = Styles.getTheme().getLineNumberSeparator();
             editor_panel.BackColor = Content.BackColor = Styles.getTheme().getBackGround();
             this.setProgramStatus(_programState);
-            updateHighLight = true;
         }
 
         private void InitBorder() {
@@ -61,51 +59,6 @@ namespace DCodeReader {
                     this.FormBorderStyle = FormBorderStyle.None;
                     break;
             }
-        }
-
-        private void UpdateHighLight() {
-            Content.HighlightText("public ", Color.Blue);
-            //Content.HighlightText("static ", Color.Blue);
-            //Content.HighlightText("void ", Color.Blue);
-            Content.HighlightText('[', Color.LawnGreen);
-            Content.HighlightText(':', Color.LemonChiffon);
-            Content.HighlightText(']', Color.LawnGreen);
-
-            Content.HighlightText('(', Color.Gold);
-            Content.HighlightText('/', Color.Orange);
-            Content.HighlightText(')', Color.Gold);
-
-            Content.HighlightText('{', Color.Crimson);
-            Content.HighlightText('_', Color.Red);
-            Content.HighlightText('}', Color.Crimson);
-
-            Content.HighlightText('<', Color.Cyan);
-            Content.HighlightText(';', Color.LightSeaGreen);
-            Content.HighlightText('>', Color.Cyan);
-
-            Color hexColor = Color.GreenYellow;
-            Content.HighlightText("#0", hexColor);
-            Content.HighlightText("#1", hexColor);
-            Content.HighlightText("#2", hexColor);
-            Content.HighlightText("#3", hexColor);
-            Content.HighlightText("#4", hexColor);
-            Content.HighlightText("#5", hexColor);
-            Content.HighlightText("#6", hexColor);
-            Content.HighlightText("#7", hexColor);
-            Content.HighlightText("#8", hexColor);
-            Content.HighlightText("#9", hexColor);
-            Content.HighlightText("#a", hexColor);
-            Content.HighlightText("#b", hexColor);
-            Content.HighlightText("#c", hexColor);
-            Content.HighlightText("#d", hexColor);
-            Content.HighlightText("#e", hexColor);
-            Content.HighlightText("#f", hexColor);
-            Content.HighlightText("#A", hexColor);
-            Content.HighlightText("#B", hexColor);
-            Content.HighlightText("#C", hexColor);
-            Content.HighlightText("#D", hexColor);
-            Content.HighlightText("#E", hexColor);
-            Content.HighlightText("#F", hexColor);
         }
 
         // Form action
@@ -143,11 +96,6 @@ namespace DCodeReader {
             this.backTast.Tick += new EventHandler(this.backTasking);
             this.backTast.Interval = 10;
             this.backTast.Start();
-
-            this.backTast2 = new System.Windows.Forms.Timer();
-            this.backTast2.Tick += new EventHandler(this.backTasking2);
-            this.backTast2.Interval = 100;
-            this.backTast2.Start();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e) {
@@ -192,8 +140,6 @@ namespace DCodeReader {
 
         // Component action
         private void Content_TextChanged(object sender, EventArgs e) {
-            //if(!updateHighLight)
-                //updateHighLight = true;
             //Content.ScrollToCaret();
             this.setProgramStatus(NONSAVED);
             this.updateLineNumber = true;
@@ -274,11 +220,19 @@ namespace DCodeReader {
                 updateLineNumber = false;
                 String lineText = "";
                 int length = DCode.countNum(Content.Text, '\n') + 1;
+                //lineText = "1";
+                //lineText += length > 10 ? "0" : "";
+                //lineText += length > 100 ? "00" : "";
+                //lineText += "\n";
                 for (int i = 0; i < length; i++) {
                     lineText += length >= 10 && (i + 1) < 10 ? "0" : "";
                     lineText += length >= 100 && (i + 1) < 100 ? "0" : "";
                     lineText += length >= 1000 && (i + 1) < 1000 ? "0" : "";
                     lineText += (i + 1) + "\n";
+                    //if (length >= 10 && i < 10)
+                    //    lineNumber_label.Text += "0" + i + "\n";
+                    //else
+                    //    lineNumber_label.Text += i + "\n";
                 }
                 lineNumber_label.Text = lineText;
             }
@@ -294,23 +248,23 @@ namespace DCodeReader {
                 updateContentHeight = false;
                 //tableLayoutPanel.Height = DCode.countNum(Content.Text, '\n') * 19;
             }
+
+            //hScrollBar.Width = Width;
             
-        }
 
-        
-        private bool updateHighLight = false;
+            //editorScroll = editor_panel.VerticalScroll.Value;
 
-        private void backTasking2(object sender, EventArgs e) {
-            //UpdateHighLight();
-            if (updateHighLight) {
-                updateHighLight = false;
-                int pos = Content.SelectionStart;
-                String text = Content.Text;
-                Content.Text = "";
-                Content.Text = text;
-                Content.SelectionStart = pos;
-                UpdateHighLight();
-            }
+            //editor_panel.VerticalScroll.Visible = (tableLayoutPanel.Height >= DCode.countNum(Content.Text, '\n') * 19);
+
+            //if(true){
+            //if (tableLayoutPanel.Height < DCode.countNum(Content.Text, '\n') * 19) {
+            //if (tableLayoutPanel.Height > Height) {
+                //this.tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windo
+                //this.tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)) | System.Windows.Forms.AnchorStyles.Bottom);
+                //if(this.tableLayoutPanel.Height != this.editor_panel.Height)
+                    //this.tableLayoutPanel.Height = this.editor_panel.Height;
+            //} //else
+                //this.tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
 
             if (file == null) return;
             if (!file.exists()) return;
@@ -378,13 +332,11 @@ namespace DCodeReader {
 
         // Editar
         private void Menu_undo_Click(object sender, EventArgs e) {
-            Content.Text = unPackText(Content.Text);
-            //MessageBox.Show("Undo");
+            MessageBox.Show("Undo");
         }
 
         private void Menu_endo_Click(object sender, EventArgs e) {
-            Content.Text = packText(Content.Text);
-            //MessageBox.Show("Endo");
+            MessageBox.Show("Endo");
         }
 
         // Ajuda
@@ -469,11 +421,6 @@ namespace DCodeReader {
                 //MessageBox.Show("Tab");
                 //Content.AppendText("    ");
             }
-                // Other keys
-            else {
-                Content.Focus();
-            }
-            
         }
 
         /*public int getX() {
@@ -583,80 +530,13 @@ namespace DCodeReader {
             //panel1.Invalidate();
         }
 
-        private void insertContentText(String text) {
-            Content.Text += text;
-            updateHighLight = true;
-        }
-
         private void Content_KeyPress(object sender, KeyPressEventArgs e) {
-            RichTextBox tb = sender as RichTextBox;
-            if (char.IsControl(e.KeyChar))
-                e.Handled = true;
-            /*if ((e.KeyChar == ',') && (tb.Text.IndexOf(',') > -1))
-                e.Handled = true;*/
+            
         }
 
         private void Content_KeyUp(object sender, KeyEventArgs e) {
 
         }
-
-        private void data_inserir_menu_Click(object sender, EventArgs e) {
-            insertContentText(new Datas().ToString());
-        }
-
-        private void hora_inserir_menu_Click(object sender, EventArgs e) {
-            //MessageBox.Show("Horas");
-            updateHighLight = true;
-            //insertContentText(new Horas
-        }
-
-        // Content methods
-
-        private String packText(String text) {
-            DCode dcode = new DCode(DCode.getMode(text));
-            String output = "";
-            char [] _in = text.ToCharArray();
-            String word = "";
-            int opend = 0;
-
-            int x = 0;
-            for (int i = 0; i < _in.Length; i++) {
-
-                if (_in [i] == new DCode(DCode.ARRAY).getOpen()) {
-                    output += "\n   ";
-                } else
-                if (_in [i] == new DCode(DCode.ARRAY).getClose()) {
-
-                }
-
-                /*if (_in [i] == dcode.getOpen()) {
-                    opend++;
-                    if (opend > 1) word = word + _in [i];
-                } else
-                if (_in [i] == dcode.getSpace()) {
-                    if (opend > 1) {
-                        word = word + _in [i];
-                        continue;
-                    }
-                    output += word;
-                    x++;
-                    word = "";
-                } else
-                if (_in [i] == dcode.getClose()) {
-                    if (opend > 1) word = word + _in [i];
-                    opend--;
-                } else {
-                    if (_in [i] == '\r' || opend < 1) continue;
-                    word = word + _in [i];
-                }*/
-            }
-            return output;
-        }
-
-        private String unPackText(String text) {
-            String output = "";
-
-            return output;
-        }
     }
 }
+_}

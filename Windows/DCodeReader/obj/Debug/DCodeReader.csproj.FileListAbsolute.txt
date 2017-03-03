@@ -1,4 +1,9 @@
 C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\DCodeReader\bin\Debug\DCodeReader.exe.config
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeReader.DCodeFileProps.resources
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeReader.MainForm.resources
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeReader.Properties.Resources.resources
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeReader.SettingsForm.resources
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeReader.csproj.GenerateResource.Cache
 C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\bin\Debug\DCodeReader.exe.config
 C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\bin\Debug\DCodeReader.exe.manifest
 C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\bin\Debug\DCodeReader.application
@@ -6,11 +11,6 @@ C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\bin\Debug\DCodeRe
 C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\bin\Debug\DCodeReader.pdb
 C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\bin\Debug\DCode.dll
 C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\bin\Debug\DCode.pdb
-C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeReader.DCodeFileProps.resources
-C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeReader.MainForm.resources
-C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeReader.Properties.Resources.resources
-C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeReader.SettingsForm.resources
-C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeReader.csproj.GenerateResource.Cache
 C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeReader.exe.manifest
 C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeReader.application
 C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Debug\DCodeReader.exe

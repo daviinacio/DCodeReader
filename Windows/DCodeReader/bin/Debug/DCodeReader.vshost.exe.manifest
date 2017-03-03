@@ -50,19 +50,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>vBgr+lxeGU8o3nwcQY0nKZR1NmGIGl7WAURdvjqgA58=</dsig:DigestValue>
+        <dsig:DigestValue>xIIlTT5o4RseT5xU0gQ2kjFb4rR46QXifumyB+rBJzY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DCodeReader.exe" size="319488">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DCodeReader.exe" size="326656">
       <assemblyIdentity name="DCodeReader" version="1.0.1.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>WKhK7r5Hz02bbj2P3CyTbpNJ+H9EqMWlk0M7cNtqDNw=</dsig:DigestValue>
+        <dsig:DigestValue>qh5boXh4BkTlJDJ7HnssQfwD6FU3mNHshwBg0GzJcqw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

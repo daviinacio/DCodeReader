@@ -27,6 +27,7 @@ namespace DCodeReader {
             prefs.Add("Location.x", -1);
             prefs.Add("Location.y", -1);
             prefs.Add("lineNumber", true);
+            prefs.Add("highLight", true);
 
             Styles.currentTheme = prefs.GetInt("Theme", 0);
 

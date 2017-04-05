@@ -64,48 +64,52 @@ namespace DCodeReader {
         }
 
         private void UpdateHighLight() {
-            Content.HighlightText("public ", Color.Blue);
-            //Content.HighlightText("static ", Color.Blue);
-            //Content.HighlightText("void ", Color.Blue);
-            Content.HighlightText('[', Color.LawnGreen);
-            Content.HighlightText(':', Color.LemonChiffon);
-            Content.HighlightText(']', Color.LawnGreen);
+            if (Program.prefs.GetBool("highLight")) {
+                Content.HighlightText("public ", Color.Blue);
+                //Content.HighlightText("static ", Color.Blue);
+                //Content.HighlightText("void ", Color.Blue);
+                Content.HighlightText('[', Color.LawnGreen);
+                Content.HighlightText(':', Color.LemonChiffon);
+                Content.HighlightText(']', Color.LawnGreen);
 
-            Content.HighlightText('(', Color.Gold);
-            Content.HighlightText('/', Color.Orange);
-            Content.HighlightText(')', Color.Gold);
+                Content.HighlightText('(', Color.Gold);
+                Content.HighlightText('/', Color.Orange);
+                Content.HighlightText(')', Color.Gold);
 
-            Content.HighlightText('{', Color.Crimson);
-            Content.HighlightText('_', Color.Red);
-            Content.HighlightText('}', Color.Crimson);
+                Content.HighlightText('{', Color.Crimson);
+                Content.HighlightText('_', Color.Red);
+                Content.HighlightText('}', Color.Crimson);
 
-            Content.HighlightText('<', Color.Cyan);
-            Content.HighlightText(';', Color.LightSeaGreen);
-            Content.HighlightText('>', Color.Cyan);
+                Content.HighlightText('<', Color.Cyan);
+                Content.HighlightText(';', Color.LightSeaGreen);
+                Content.HighlightText('>', Color.Cyan);
 
-            Color hexColor = Color.GreenYellow;
-            Content.HighlightText("#0", hexColor);
-            Content.HighlightText("#1", hexColor);
-            Content.HighlightText("#2", hexColor);
-            Content.HighlightText("#3", hexColor);
-            Content.HighlightText("#4", hexColor);
-            Content.HighlightText("#5", hexColor);
-            Content.HighlightText("#6", hexColor);
-            Content.HighlightText("#7", hexColor);
-            Content.HighlightText("#8", hexColor);
-            Content.HighlightText("#9", hexColor);
-            Content.HighlightText("#a", hexColor);
-            Content.HighlightText("#b", hexColor);
-            Content.HighlightText("#c", hexColor);
-            Content.HighlightText("#d", hexColor);
-            Content.HighlightText("#e", hexColor);
-            Content.HighlightText("#f", hexColor);
-            Content.HighlightText("#A", hexColor);
-            Content.HighlightText("#B", hexColor);
-            Content.HighlightText("#C", hexColor);
-            Content.HighlightText("#D", hexColor);
-            Content.HighlightText("#E", hexColor);
-            Content.HighlightText("#F", hexColor);
+                Color hexColor = Color.GreenYellow;
+                Content.HighlightText("#0", hexColor);
+                Content.HighlightText("#1", hexColor);
+                Content.HighlightText("#2", hexColor);
+                Content.HighlightText("#3", hexColor);
+                Content.HighlightText("#4", hexColor);
+                Content.HighlightText("#5", hexColor);
+                Content.HighlightText("#6", hexColor);
+                Content.HighlightText("#7", hexColor);
+                Content.HighlightText("#8", hexColor);
+                Content.HighlightText("#9", hexColor);
+                Content.HighlightText("#a", hexColor);
+                Content.HighlightText("#b", hexColor);
+                Content.HighlightText("#c", hexColor);
+                Content.HighlightText("#d", hexColor);
+                Content.HighlightText("#e", hexColor);
+                Content.HighlightText("#f", hexColor);
+                Content.HighlightText("#A", hexColor);
+                Content.HighlightText("#B", hexColor);
+                Content.HighlightText("#C", hexColor);
+                Content.HighlightText("#D", hexColor);
+                Content.HighlightText("#E", hexColor);
+                Content.HighlightText("#F", hexColor);
+            } else
+                if(Content.ForeColor != Styles.getTheme().getForeGround() || true)
+                    InitTheme();
         }
 
         // Form action
@@ -181,11 +185,9 @@ namespace DCodeReader {
         }
 
         private void InitPrefs() {
-            bool lineNumberEnabled = Program.prefs.GetBool("lineNumber");
             lineNumber_panel.Visible = Program.prefs.GetBool("lineNumber");
-            /*if(lineNumberEnabled)
-                line*/
-            lineNumber_editar_menu.Checked = lineNumberEnabled;
+            lineNumber_editar_menu.Checked = Program.prefs.GetBool("lineNumber");
+            highLight_editar_menu.Checked = Program.prefs.GetBool("highLight");
         }
 
         Keys currentKey = Keys.Clear;
@@ -193,7 +195,7 @@ namespace DCodeReader {
         // Component action
         private void Content_TextChanged(object sender, EventArgs e) {
             //if(!updateHighLight)
-                //updateHighLight = true;
+                updateHighLight = true;
             //Content.ScrollToCaret();
             this.setProgramStatus(NONSAVED);
             this.updateLineNumber = true;
@@ -302,7 +304,7 @@ namespace DCodeReader {
 
         private void backTasking2(object sender, EventArgs e) {
             //UpdateHighLight();
-            if (updateHighLight) {
+            if (updateHighLight && Program.prefs.GetBool("highLight")) {
                 updateHighLight = false;
                 int pos = Content.SelectionStart;
                 String text = Content.Text;
@@ -438,6 +440,10 @@ namespace DCodeReader {
                     Program.prefs.Set("lineNumber", !Program.prefs.GetBool("lineNumber"));
                     InitPrefs();
                 } else
+                if (e.KeyCode == Keys.H) {
+                    Program.prefs.Set("highLight", !Program.prefs.GetBool("highLight"));
+                    InitPrefs();
+                } else
                 if (e.KeyCode == Keys.Home) {
                     editor_panel.ScrollToTop();
                 } else
@@ -539,6 +545,11 @@ namespace DCodeReader {
 
         private void lineNumber_editar_menu_Click(object sender, EventArgs e) {
             Program.prefs.Set("lineNumber", lineNumber_editar_menu.Checked);
+            InitPrefs();
+        }
+
+        private void highLight_editar_menu_Click(object sender, EventArgs e) {
+            Program.prefs.Set("highLight", highLight_editar_menu.Checked);
             InitPrefs();
         }
 

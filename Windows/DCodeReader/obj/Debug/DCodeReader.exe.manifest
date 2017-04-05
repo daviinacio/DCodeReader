@@ -4,7 +4,7 @@
   <description asmv2:iconFile="v2_icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="DCodeReader" version="1.0.1.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="DCodeReader" version="1.0.2.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="DCodeReader.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DCodeReader.exe" size="326656">
-      <assemblyIdentity name="DCodeReader" version="1.0.1.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DCodeReader.exe" size="327680">
+      <assemblyIdentity name="DCodeReader" version="1.0.2.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>qh5boXh4BkTlJDJ7HnssQfwD6FU3mNHshwBg0GzJcqw=</dsig:DigestValue>
+        <dsig:DigestValue>fwTMeLnxIqPpZBLnrjC+xBnHsRSFDu/4G63ovQYn3Cw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

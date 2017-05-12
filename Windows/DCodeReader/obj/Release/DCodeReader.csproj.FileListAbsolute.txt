@@ -1,0 +1,17 @@
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\bin\Release\DCodeReader.exe.config
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\bin\Release\DCodeReader.exe.manifest
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\bin\Release\DCodeReader.application
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\bin\Release\DCodeReader.exe
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\bin\Release\DCodeReader.pdb
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\bin\Release\DCode.dll
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\bin\Release\DCode.pdb
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Release\DCodeReader.csprojResolveAssemblyReference.cache
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Release\DCodeReader.DCodeFileProps.resources
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Release\DCodeReader.MainForm.resources
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Release\DCodeReader.Properties.Resources.resources
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Release\DCodeReader.SettingsForm.resources
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Release\DCodeReader.csproj.GenerateResource.Cache
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Release\DCodeReader.exe.manifest
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Release\DCodeReader.application
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Release\DCodeReader.exe
+C:\Users\Davi\Documents\GitHub\DCodeReader\Windows\DCodeReader\obj\Release\DCodeReader.pdb

@@ -34,6 +34,7 @@
             this.Menu_endo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.lineNumber_editar_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.highLight_editar_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_help = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -63,7 +64,7 @@
             this.editor_panel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.lineNumber_panel = new System.Windows.Forms.Panel();
-            this.highLight_editar_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.auto_theme_style_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMain.SuspendLayout();
             this.Control_Menu.SuspendLayout();
             this.editor_panel.SuspendLayout();
@@ -228,6 +229,15 @@
             this.lineNumber_editar_menu.Text = "Line number [Ctrl + L]";
             this.lineNumber_editar_menu.Click += new System.EventHandler(this.lineNumber_editar_menu_Click);
             // 
+            // highLight_editar_menu
+            // 
+            this.highLight_editar_menu.CheckOnClick = true;
+            this.highLight_editar_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.highLight_editar_menu.Name = "highLight_editar_menu";
+            this.highLight_editar_menu.Size = new System.Drawing.Size(203, 22);
+            this.highLight_editar_menu.Text = "High Light [Ctrl + H]";
+            this.highLight_editar_menu.Click += new System.EventHandler(this.highLight_editar_menu_Click);
+            // 
             // ajudaToolStripMenuItem
             // 
             this.ajudaToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -279,24 +289,25 @@
             // theme_style_menu
             // 
             this.theme_style_menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.auto_theme_style_menu,
             this.light_theme_style_menu,
             this.dark_theme_style_menu});
             this.theme_style_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.theme_style_menu.Name = "theme_style_menu";
-            this.theme_style_menu.Size = new System.Drawing.Size(116, 22);
+            this.theme_style_menu.Size = new System.Drawing.Size(152, 22);
             this.theme_style_menu.Text = "Theme";
             // 
             // light_theme_style_menu
             // 
             this.light_theme_style_menu.Name = "light_theme_style_menu";
-            this.light_theme_style_menu.Size = new System.Drawing.Size(104, 22);
+            this.light_theme_style_menu.Size = new System.Drawing.Size(152, 22);
             this.light_theme_style_menu.Text = "Light";
             this.light_theme_style_menu.Click += new System.EventHandler(this.light_theme_style_menu_Click);
             // 
             // dark_theme_style_menu
             // 
             this.dark_theme_style_menu.Name = "dark_theme_style_menu";
-            this.dark_theme_style_menu.Size = new System.Drawing.Size(104, 22);
+            this.dark_theme_style_menu.Size = new System.Drawing.Size(152, 22);
             this.dark_theme_style_menu.Text = "Dark";
             this.dark_theme_style_menu.Click += new System.EventHandler(this.dark_theme_style_menu_Click);
             // 
@@ -307,7 +318,7 @@
             this.custom_border_style_menu});
             this.border_style_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.border_style_menu.Name = "border_style_menu";
-            this.border_style_menu.Size = new System.Drawing.Size(116, 22);
+            this.border_style_menu.Size = new System.Drawing.Size(152, 22);
             this.border_style_menu.Text = "Border";
             // 
             // windows_border_style_menu
@@ -340,7 +351,7 @@
             // 
             this.data_inserir_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.data_inserir_menu.Name = "data_inserir_menu";
-            this.data_inserir_menu.Size = new System.Drawing.Size(105, 22);
+            this.data_inserir_menu.Size = new System.Drawing.Size(152, 22);
             this.data_inserir_menu.Text = "Data";
             this.data_inserir_menu.Click += new System.EventHandler(this.data_inserir_menu_Click);
             // 
@@ -348,7 +359,7 @@
             // 
             this.hora_inserir_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hora_inserir_menu.Name = "hora_inserir_menu";
-            this.hora_inserir_menu.Size = new System.Drawing.Size(105, 22);
+            this.hora_inserir_menu.Size = new System.Drawing.Size(152, 22);
             this.hora_inserir_menu.Text = "Hora";
             this.hora_inserir_menu.Click += new System.EventHandler(this.hora_inserir_menu_Click);
             // 
@@ -495,14 +506,12 @@
             this.lineNumber_panel.Size = new System.Drawing.Size(18, 22);
             this.lineNumber_panel.TabIndex = 3;
             // 
-            // highLight_editar_menu
+            // auto_theme_style_menu
             // 
-            this.highLight_editar_menu.CheckOnClick = true;
-            this.highLight_editar_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.highLight_editar_menu.Name = "highLight_editar_menu";
-            this.highLight_editar_menu.Size = new System.Drawing.Size(203, 22);
-            this.highLight_editar_menu.Text = "High Light [Ctrl + H]";
-            this.highLight_editar_menu.Click += new System.EventHandler(this.highLight_editar_menu_Click);
+            this.auto_theme_style_menu.Name = "auto_theme_style_menu";
+            this.auto_theme_style_menu.Size = new System.Drawing.Size(152, 22);
+            this.auto_theme_style_menu.Text = "Auto";
+            this.auto_theme_style_menu.Click += new System.EventHandler(this.auto_theme_style_menu_Click);
             // 
             // MainForm
             // 
@@ -587,6 +596,7 @@
         private System.Windows.Forms.ToolStripMenuItem data_inserir_menu;
         private System.Windows.Forms.ToolStripMenuItem hora_inserir_menu;
         private System.Windows.Forms.ToolStripMenuItem highLight_editar_menu;
+        private System.Windows.Forms.ToolStripMenuItem auto_theme_style_menu;
     }
 }
 

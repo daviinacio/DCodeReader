@@ -34,6 +34,10 @@ namespace DCodeReader {
 
         // Theme
         private void InitTheme() {
+            auto_theme_style_menu.Checked = (Styles.currentTheme == -1);
+            light_theme_style_menu.Checked = (Styles.currentTheme == 0);
+            dark_theme_style_menu.Checked = (Styles.currentTheme == 1);
+
             int _programState = programState;
             MenuMain.BackColor = Styles.getTheme().getMenuBack();
             MenuMain.ForeColor = Styles.getTheme().getMenuFore();
@@ -49,6 +53,10 @@ namespace DCodeReader {
 
         private void InitBorder() {
             int border = Program.prefs.GetInt("Border", 0);
+
+            windows_border_style_menu.Checked = (border == 0);
+            custom_border_style_menu.Checked = (border == 1);
+
             switch (border) {
                 case 0:
                     Control_Menu.Visible = false;
@@ -138,7 +146,6 @@ namespace DCodeReader {
             if (x > -1 && y > -1) {
                 this.Location = new Point(x, y);
             }
-
             InitPrefs();
 
             //editor_panel.AutoScroll = true;
@@ -522,6 +529,11 @@ namespace DCodeReader {
         }
 
         // Style Menu
+
+        private void auto_theme_style_menu_Click(object sender, EventArgs e) {
+            Styles.currentTheme = -1;
+            InitTheme();
+        }
 
         private void light_theme_style_menu_Click(object sender, EventArgs e) {
             Styles.currentTheme = 0;

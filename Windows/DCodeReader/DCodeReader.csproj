@@ -24,8 +24,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>DCode Reader</ProductName>
     <PublisherName>DaviApps</PublisherName>
-    <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -113,6 +113,9 @@
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Styles.cs" />
+    <Compile Include="TextBoxStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Theme.cs" />
     <Compile Include="Utility.cs" />
     <EmbeddedResource Include="DCodeFileProps.resx">

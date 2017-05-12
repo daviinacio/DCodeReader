@@ -16,8 +16,12 @@ namespace DCodeReader {
         private DCodeFile file;
 
         private void InitTheme() {
-            this.BackColor = Styles.getTheme().getBackGround();
-            this.ForeColor = Styles.getTheme().getForeGround();
+            this.BackColor = TitleEdit.BackColor = EncodeTypeEdit.BackColor = ContentEdit.BackColor = Styles.getTheme().getBackGround();
+            this.ForeColor = TitleEdit.ForeColor = EncodeTypeEdit.ForeColor = ContentEdit.ForeColor = Styles.getTheme().getForeGround();
+
+            Props_Cancel.BackColor = Styles.getTheme().getBackGround();
+
+            //TitleEdit.BorderStyle = Styles.getTheme().getForeGround();
             //Props_Cancel.BackColor = this.BackColor + Color.FromArgb(0x222);
         }
 
@@ -31,7 +35,7 @@ namespace DCodeReader {
                 EncodeTypeEdit.Text = file.getEncodeType();
                 ContentEdit.Text = file.getText();
             }
-            //InitTheme();
+            InitTheme();
         }
 
         private void DCodeFileProps_Load(object sender, EventArgs e) {
@@ -61,5 +65,25 @@ namespace DCodeReader {
 
             Props_OK.Enabled = !titleError;
         }
+
+        //bool focus = false;
+        private void DCodeFileProps_Paint(object sender, PaintEventArgs e) {
+            ControlStyle.setBorder(TitleEdit, System.Drawing.ColorTranslator.FromHtml("#aaaaaa"), e, TitleEdit.Focus());
+            ControlStyle.setBorder(EncodeTypeEdit, System.Drawing.ColorTranslator.FromHtml("#aaaaaa"), e, TitleEdit.Focus());
+            ControlStyle.setBorder(ContentEdit, System.Drawing.ColorTranslator.FromHtml("#aaaaaa"), e, TitleEdit.Focus());
+            //ControlStyle.setBorder(TitleEdit, Styles.getTheme().getBackGround(), e, TitleEdit.Focus());
+            //MessageBox.Show("Paint");
+            //TextBox textBox = sender as TextBox;
+        }
+
+        /*private void title_Enter(object sender, EventArgs e) {
+            focus = true;
+            this.Refresh();
+        }
+
+        private void title_Leave(object sender, EventArgs e) {
+            focus = false;
+            this.Refresh();
+        }*/
     }
 }

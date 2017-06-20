@@ -43,26 +43,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DCode.dll" size="22016">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DCode.dll" size="22528">
       <assemblyIdentity name="DCode" version="1.0.2.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>6Uu/KR9BAUNUOyrMcKZIdWtm1SEURDa7G6fEjjrbdBI=</dsig:DigestValue>
+        <dsig:DigestValue>h3WrqoKYyb61sco4fX0uVVkSG/dqP7Cpwi1ghzaG/K8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DCodeReader.exe" size="327168">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DCodeReader.exe" size="309248">
       <assemblyIdentity name="DCodeReader" version="1.0.3.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+hNmroKkW19WSEiosKQ5GvJ+wObVZ88yAQApJPGVddc=</dsig:DigestValue>
+        <dsig:DigestValue>Q9b3NJfepOL4iP4KgiXzpTfETwoTAePqLk1xrQdFD0Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

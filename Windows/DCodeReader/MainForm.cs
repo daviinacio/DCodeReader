@@ -49,6 +49,8 @@ namespace DCodeReader {
             editor_panel.BackColor = Content.BackColor = Styles.getTheme().getBackGround();
             this.setProgramStatus(_programState);
             updateHighLight = true;
+
+            Opacity = 0.85;
         }
 
         private void InitBorder() {

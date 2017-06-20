@@ -13,7 +13,7 @@ namespace DCodeReader {
             new HighLight_Char('{', Color.Blue)
         }, SystemColors.ControlDarkDark);
 
-        public static Theme Dark = new Theme(System.Drawing.ColorTranslator.FromHtml(/*"#103933""#334444"*/"#444444"), Color.FromArgb(0xffffff), Color.MediumAquamarine, Color.White, new HighLight_Char [] {
+        public static Theme Dark = new Theme(ColorTranslator.FromHtml(/*"#103933""#334444"*/"#222222"), Color.FromArgb(0xffffff), Color.MediumAquamarine, Color.White, new HighLight_Char [] {
             new HighLight_Char('{', Color.Blue)
         }, Color.MediumAquamarine);
 

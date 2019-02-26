@@ -20,6 +20,8 @@ namespace DCodeReader {
 
             String settingsFolder = (Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\DaviApps\\DCode Reader\\settings\\");
 
+            //MessageBox.Show(settingsFolder, "Preferences filename path");
+
             // Initialize prefs
             prefs = new DCodePreferences(new DCodeFile(settingsFolder + "settings.DCode"));
             prefs.Add("Theme", 0);

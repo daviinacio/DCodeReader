@@ -24,7 +24,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>DCode Reader</ProductName>
     <PublisherName>DaviApps</PublisherName>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -51,10 +51,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>DB39BD8388588E19E3836D6A26EF493498798E24</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>48C33E8260348B18732B1BE90D14E3364625BBF0</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>DCodeReader_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>DCodeReader_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -67,7 +67,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DCode">
-      <HintPath>..\..\..\DCode\DCodeC#\DCode\bin\Debug\DCode.dll</HintPath>
+      <HintPath>..\..\..\..\Java\DCode\dcode-csharp\DCode\bin\Debug\DCode.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -131,6 +131,7 @@
     <EmbeddedResource Include="SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DCodeReader_1_TemporaryKey.pfx" />
     <None Include="DCodeReader_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

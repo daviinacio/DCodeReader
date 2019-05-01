@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <PublishUrlHistory>publish\</PublishUrlHistory>
-    <InstallUrlHistory />
+    <PublishUrlHistory>ftp://daviapps.6te.net/apps/dotnet/DCodeReader/|C:\Users\Davi-PC\Desktop\DCode\|C:\Users\Davi-PC\Desktop\DCOde\|ftp://daviapps.6te.net/|publish\</PublishUrlHistory>
+    <InstallUrlHistory>http://daviapps.6te.net/apps/dotnet/DCodeReader/|http://daviapps.6te.net/apps/publish/DCodeReader/</InstallUrlHistory>
     <SupportUrlHistory />
-    <UpdateUrlHistory />
+    <UpdateUrlHistory>http://daviapps.6te.net/apps/dotnet/DCodeReader/</UpdateUrlHistory>
     <BootstrapperUrlHistory />
     <ErrorReportUrlHistory />
     <FallbackCulture>en-US</FallbackCulture>
